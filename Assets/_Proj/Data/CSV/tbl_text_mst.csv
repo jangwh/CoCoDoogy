@@ -1,0 +1,119 @@
+kr_text_id,kr_text
+[home_small_home],따뜻한 우리의 집
+[home_camping_car],캠핑카
+[home_green_roof_home],초록지붕집
+[home_red_home],붉은 외벽집
+[deco_white_fence],흰색 울타리
+[deco_fence],나무 울타리
+[deco_ground_planks],나무 바닥판
+[deco_fireplace],벽난로
+[deco_tree_lime],라임 나무
+[deco_weed_pot],잡초 화분
+[deco_decorative_pot],장식 화분
+[deco_firepit],모닥불
+[deco_well],우물
+[deco_carriage],트레일러
+[deco_traffic_cone],꼬깔콘
+[deco_tires],타이어
+[deco_generator],발전기
+[deco_wood_chair],목재 의자
+[deco_orange_audio],주황색 오디오
+[deco_tree_large],큰 나무
+[deco_tree_dead],고목 나무
+[deco_grass],잡초
+[deco_log_chair],통나무 의자
+[deco_cloud_table],구름 탁자
+[deco_mini_pot],미니 화분
+[deco_helpground],구조 신호판
+[icon_01],코코두기 아이콘
+[icon_02],로봇주인 아이콘
+[icon_03],멧돼지 아이콘
+[icon_04],거북이 아이콘
+[icon_05],버팔로 아이콘
+[icon_06],즐거운 시간 아이콘
+[icon_07],첫 만남 아이콘
+[icon_08],여정의 시작 아이콘
+[icon_09],챕터 1 아이콘
+[icon_10],챕터 2 아이콘
+[icon_11],챕터 3 아이콘
+[coin],동전
+[cap],병뚜껑
+[coco_get_coin],반짝이는 동전이야!\n주인님께 가져다드리자!
+[coco_get_cap],병뚜껑 재밌겠다!\n이걸로 뭘 할수 있을까?
+[chapter_1_name],불안
+[chapter_2_name],힐링
+[chapter_3_name],위로
+[stage_1_1_name],1-1. 잊힌 고속도로(1)
+[stage_1_2_name],1-2. 잊힌 고속도로(2)
+[stage_1_3_name],1-3. 숲속의 낯선 시선
+[stage_1_4_name],1-4. 경계선의 만남(1)
+[stage_1_5_name],1-5. 경계선의 만남(2)
+[stage_1_6_name],1-6. 두 갈래의 마음
+[stage_1_7_name],1-7. 희미한 불빛(1)
+[stage_1_8_name],1-8. 희미한 불빛(2)
+[stage_1_9_name],1-9. 희미한 불빛(3)
+[stage_1_10_name],1-10. 소중한 보물
+[stage_2_1_name],2-1. 달빛의 강가(1)
+[stage_2_2_name],2-2. 달빛의 강가(2)
+[stage_2_3_name],2-3. 강가의 손님
+[stage_2_4_name],2-4. 흐름의 동행(1)
+[stage_2_5_name],2-5. 흐름의 동행(2)
+[stage_2_6_name],2-6. 흐름의 동행(3)
+[stage_2_7_name],2-7. 흐름의 동행(4)
+[stage_2_8_name],2-8. 발끝의 용기
+[stage_2_9_name],2-9. 발끝의 용기
+[stage_2_10_name],2-10. 달빛의 춤
+[stage_3_1_name],3-1. 산길의 동행
+[stage_3_2_name],3-2. 무너진 바위길(1)
+[stage_3_3_name],3-3. 무너진 바위길(2)
+[stage_3_4_name],3-4. 낙석의 경사면
+[stage_3_5_name],3-5. 능선 위의 바람
+[stage_3_6_name],3-6. 바위의 그림자
+[stage_3_7_name],3-7. 거친 절벽길
+[stage_3_8_name],3-8. 안개 너머의 절벽
+[stage_3_9_name],3-9. 잔해가 잠든 정상
+[stage_3_10_name],3-10. 외로운 짐승
+[costume_cowboy],카우보이 모자
+[costume_crown],왕관
+[costume_magician],마법사 모자
+[animal_hog],멧돼지
+[animal_tortoise],거북이
+[animal_buffalo],버팔로
+[animal_donkey],당나귀
+[animal_chick],닭
+[artifact_travelbag],여행 가방
+[artifact_leafcrown],나뭇잎 왕관
+[artifact_smallmetal],작은 금속 조각
+[artifact_toyrobot],로봇 장난감
+[artifact_familypic],누군가의 가족사진
+[artifact_flowerbouquet],꽃다발
+[artifact_handle],핸들
+[artifact_tornnewspaper],찢어진 뉴스
+[artifact_posterfragment],포스터 조각
+[artifact_baseball],야구공
+[background_basic],기본 배경
+[background_winter],크리스마스 겨울 배경
+[background_summer],시원한 여름 배경
+[goods_energy],행동력
+[goods_cap],병뚜껑
+[goods_coin],유료 코인
+[artifact_woodenboard],나무 판자
+[artifact_shellnecklace],조개 껍질 목걸이
+[artifact_laundry],세탁물
+[artifact_tube],튜브
+[artifact_paddle],패들
+[artifact_fishingrod],낚싯대
+[artifact_paperboat],종이배
+[artifact_seaweed],해초
+[artifact_pebbles],조약돌
+[artifact_waterdrop],물방울
+[artifact_survivaldiary],생존 일지
+[artifact_map],지도
+[artifact_compass],나침반
+[artifact_whistle],비상 호루라기
+[artifact_jointring],관절 링 부품
+[artifact_stopsign],출입 금지 표지판
+[artifact_umbrella],우산
+[artifact_tent],텐트
+[artifact_pipe],파이프 조각
+[artifact_flashlight],손전등
