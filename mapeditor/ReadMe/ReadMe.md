@@ -6,11 +6,11 @@ CoCoDoogy [기업협약 프로젝트]
 
 코코두기 플레이 영상
 
-My TIL link is https://youtu.be/HmJ0po1_HL0
+https://youtu.be/HmJ0po1_HL0
 
 코코두기 맵에디터 영상
 
-My TIL link is https://youtu.be/CyaZSgbOMAA
+https://youtu.be/CyaZSgbOMAA
 
 ## 1. 코코두기
 
@@ -31,6 +31,7 @@ Unity를 활용하여 3D로 제작하였습니다
 * 맵에디터 데이터관리
 * 팩토리패턴 활용
 * 간단한 키를 활용하여 블록 전환
+* 그리드 스냅
 
 -----------------------------------------------------------
 ## 3. 기술 스택
