@@ -19,7 +19,7 @@ public class FirebaseManager : MonoBehaviour
         DependencyStatus status = await FirebaseApp.CheckAndFixDependenciesAsync();
         var options = new AppOptions()
         {
-            ApiKey = "AIzaSyCwkcOr1bVZRgdHsx773b6rO2drpjy1dyY",
+            ApiKey = "",
             DatabaseUrl = new("https://doogymapeditor-default-rtdb.asia-southeast1.firebasedatabase.app/"),
             ProjectId = "doogymapeditor",
             StorageBucket = "doogymapeditor.firebasestorage.app",
