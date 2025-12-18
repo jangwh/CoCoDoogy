@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dfc3e6eba0931439c057868a977b6f, type: 3}
+  m_Name: TreasureListData
+  m_EditorClassIdentifier: 
+  categoryName: F4
+  icon: {fileID: 21300000, guid: ca2c7b0d0faadbe4a96ab8502603144d, type: 3}
+  blocks:
+  - {fileID: 11400000, guid: 757edd3c1f9338340b880878b64fc950, type: 2}
+  - {fileID: 11400000, guid: aca939c7084cac64d9a7a070e5545f27, type: 2}
+  - {fileID: 11400000, guid: 0e82ee50ad5e3a1439ad53de5779ab16, type: 2}
+  - {fileID: 11400000, guid: 573c4805d2a29384da8ccbe49d052342, type: 2}
+  - {fileID: 11400000, guid: 60e454f3f83d66e43b3d3bf8f9699adf, type: 2}
