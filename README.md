@@ -41,7 +41,7 @@ Unity를 활용하여 3D로 제작하였습니다
 ## 3. 플로우 차트 및 클래스 다이어그램
 
 3.1 플로우차트
-<img width="1083" height="531" alt="Image" src="https://github.com/user-attachments/assets/e063b1f6-d5de-4855-864d-949f634acf23" />
+<img width="1233" height="596" alt="Image" src="https://github.com/user-attachments/assets/a37e5675-90dd-47fa-8e8c-02c54524466e" />
 
 --------------------------------------------------------------------------------------------------------------------
 3.2 클래스 다이어그램
