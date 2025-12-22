@@ -46,16 +46,16 @@ Unity를 활용하여 3D로 제작하였습니다
 --------------------------------------------------------------------------------------------------------------------
 3.2 클래스 다이어그램
 
-<img width="897" height="527" alt="Image" src="https://github.com/user-attachments/assets/0c575a54-867b-4138-aeb4-c8705104f75f" />
+<img width="677" height="470" alt="Image" src="https://github.com/user-attachments/assets/b037eb25-7b73-4782-8d3d-305c4a46a9a0" />
 
 --------------------------------------------------------------------------------------------------------------------
-<img width="1098" height="490" alt="Image" src="https://github.com/user-attachments/assets/5ae0714e-ba64-49a8-ac77-05a89a476453" />
+<img width="682" height="465" alt="Image" src="https://github.com/user-attachments/assets/0880ddff-8f27-482f-886a-ddd50b38df39" />
 
 --------------------------------------------------------------------------------------------------------------------
-<img width="1059" height="495" alt="Image" src="https://github.com/user-attachments/assets/8ad0632d-fd56-4a25-acd2-c8eabe1002ae" />
+<img width="692" height="443" alt="Image" src="https://github.com/user-attachments/assets/3094c32d-6d40-4eb0-9a9b-ac29f25ff2c7" />
 
 --------------------------------------------------------------------------------------------------------------------
-<img width="1088" height="547" alt="Image" src="https://github.com/user-attachments/assets/18cce96d-f1b8-4d02-af2a-2ac0ba979303" />
+<img width="970" height="546" alt="Image" src="https://github.com/user-attachments/assets/a67efe66-9b33-4281-9e5f-e1ffeb2a54af" />
 
 --------------------------------------------------------------------------------------------------------------------
 <img width="834" height="485" alt="Image" src="https://github.com/user-attachments/assets/80a88277-7011-4bd2-bd08-99ba3bd0fe3a" />
