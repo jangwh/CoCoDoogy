@@ -21,13 +21,13 @@ Unity를 활용하여 3D로 제작하였습니다
 
 장우형 개발파트
 
-2.1 맵 에디터 UI / 블록 선택 시스템
+### 2.1 맵 에디터 UI / 블록 선택 시스템
 
-📌 BlockCategoryUI
+### 📌 BlockCategoryUI
 
 * 맵 에디터에서 카테고리 기반 블록 선택 UI 및 단축키 입력을 관리하는 클래스
 
-🔗 Class
+### 🔗 Class
 
 [BlockCategoryUI.cs](mapeditor/Assets/Scripts/UI/BlockCategoryUI.cs)
 
@@ -75,14 +75,14 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 키보드 단축키 중심 UX로 맵 제작 속도 향상
 
-2.2 블록 생성 및 식별 시스템
+### 2.2 블록 생성 및 식별 시스템
 
 
-📌 BlockFactory
+### 📌 BlockFactory
 
 * 블록 데이터 기반 프리팹 생성 및 식별 컴포넌트 구성 담당 클래스
 
-🔗 Class
+### 🔗 Class
 
 [BlockFactory.cs](mapeditor/Assets/Scripts/BlockFactory.cs)
 
@@ -126,7 +126,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 맵 저장/로드 시스템과 자연스럽게 연동 가능
 
-2.3 코코두기 데이터 관리 시스템
+### 2.3 코코두기 데이터 관리 시스템
 
 * 구글 스프레드시트 기반 데이터 파이프라인 구축 및 DataManager 허브화
 
@@ -136,14 +136,14 @@ Unity를 활용하여 3D로 제작하였습니다
 에디터 단계에서 CSV를 자동 다운로드한 뒤 ScriptableObject(S/O)로 변환하고,
 런타임에서는 DataManager를 중심으로 모든 데이터 접근을 통합하는 구조를 사용합니다.
 
-2.3.1 CSV → ScriptableObject 자동 변환 파이프라인
+### 2.3.1 CSV → ScriptableObject 자동 변환 파이프라인
 
 
-📌 MetaJsonGenerator
+### 📌 MetaJsonGenerator
 
 * 데이터 테이블 메타 정보를 기반으로 table_meta.json을 자동 생성하는 에디터 툴
 
-🔗 Class
+### 🔗 Class
 
 [MetaJsonGenerator.cs](Assets/_Proj/Scripts/Editor/Tools/MetaJsonGenerator.cs)
 
@@ -163,11 +163,11 @@ Unity를 활용하여 3D로 제작하였습니다
 → TableMetaList 구조로 JSON 파일 생성
 
 
-📌 CsvImportManager
+### 📌 CsvImportManager
 
 * 메타 JSON을 기반으로 CSV를 다운로드하고 ScriptableObject로 변환하는 에디터 툴
 
-🔗 Class
+### 🔗 Class
 
 [CsvImportManager.cs](Assets/_Proj/Scripts/Editor/Tools/CsvImportManager.cs)
 
@@ -194,13 +194,13 @@ Unity를 활용하여 3D로 제작하였습니다
 → CSV 원격 다운로드 처리
 
 
-2.3.2 DataManager 허브화 구조
+### 2.3.2 DataManager 허브화 구조
 
-📌 DataManager
+### 📌 DataManager
 
 * 프로젝트 전체 데이터 접근을 단일 진입점으로 통합한 데이터 허브
 
-🔗 Class
+### 🔗 Class
 
 [DataManager.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/DataManager.cs)
 
@@ -221,11 +221,11 @@ Unity를 활용하여 3D로 제작하였습니다
 * ataRegistry를 통해 S/O 참조 집합 관리
 
 
-📌 ResourcesLoader
+### 📌 ResourcesLoader
 
 * 리소스 로딩 책임을 분리하기 위한 Loader 클래스
 
-🔗 Class
+### 🔗 Class
 
 [ResourcesLoader.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/ResourcesLoader.cs)
 
@@ -235,9 +235,201 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * Provider가 구체적인 로딩 방식에 의존하지 않도록 분리
 
-2.3 씬연결
-* 아웃게임-인게임-아웃게임 전환시의 처리
-* 보물 획득 여부에 따른 추가처리
+### 2.4 씬 연결 (OutGame ↔ InGame ↔ OutGame)
+
+* 스테이지 진입부터 클리어 후 메인 복귀까지의 씬 전환 흐름과
+보물(별) 획득 여부에 따른 추가 처리 로직을 정리한다.
+
+### 2.4.1 아웃게임 → 인게임 전환 처리
+
+### 📌 StageManager 
+
+### 🔗 Class
+
+[StageManager.cs](Assets/_Proj/Scripts/Stage/StageManager.cs)
+
+* StageManager는 인게임 진입의 총괄 컨트롤러로서 다음 책임을 가진다.
+
+주요 책임
+
+* Firebase에서 선택된 스테이지 정보 수신
+
+* 맵 데이터(MapData) 기반 스테이지 구성
+
+* 플레이어, 카메라, UI, 컷씬, 다이얼로그 초기 흐름 제어
+
+🔄 인게임 초기화 시퀀스
+
+1️⃣ 스테이지 데이터 확보
+
+* 일반 모드
+→ FirebaseManager.Instance.currentMapData
+
+2️⃣ 블록 팩토리를 통한 스테이지 구성
+* LoadStage(currentMapData);
+* InspectBlocks();
+* LinkSignals();
+
+
+* BlockFactory를 통해 맵 블록을 동적 생성
+
+* 그리드 기준으로 블록 등록 (blockDictionary)
+
+* 시그널 블록 간 연결 처리
+
+3️⃣ 연출 처리 (페이드 → 컷씬 → BGM → 카메라)
+
+* 페이드 인/아웃
+
+* 시작 컷씬 재생 (존재 시)
+
+* 스테이지 BGM 재생
+
+* 카메라 워킹 연출
+
+4️⃣ 플레이어 생성 및 다이얼로그 시작
+
+* SpawnPlayer();
+ 
+* 시작 지점에 플레이어 생성
+
+* 다이얼로그 존재 시 입력 잠금 및 진행 제어
+
+### 2.4.2 인게임 중 상호작용 제어
+
+### 📌 DialogueManager 
+
+### 🔗 Class
+
+[DialogueManager.cs](Assets/_Proj/Scripts/Stage/DialogueManager.cs)
+
+주요 역할
+
+* 다이얼로그 출력 및 진행 관리
+
+* 터치 입력 기반 다음 대사 처리
+
+* 게임플레이 입력 잠금 / 해제
+
+### 2.4.3 보물(Treasure) 획득 플로우 및 인게임 처리
+
+인게임 스테이지 내에서 보물 오브젝트와 상호작용할 때의
+플레이 흐름 제어, UI 전환, 진행도 반영 과정을 담당하는 시스템
+
+### 📌 Treasure 
+
+### 🔗 Class
+
+[Treasure.cs](Assets/_Proj/Scripts/Stage/Block/Treasure.cs)
+
+* Treasure는 스테이지에 배치되는 상호작용 오브젝트로,
+플레이어 충돌을 기점으로 다음을 처리한다.
+
+* 보물 획득 여부 판별
+
+* 보물 타입에 따른 UI 출력
+
+* 플레이어 입력 및 이동 제어
+
+* 스테이지 내 보물 획득 상태(StageManager) 반영
+
+### 2.4.3.1 스테이지 진입 시 보물 상태 초기화
+
+처리 내용
+
+* 현재 스테이지 진행도를 기준으로 이미 획득한 보물인지 여부 확인
+
+* 이미 획득한 경우 : 파티클 비활성화, 셰이더 색상 변경(회색 처리), 재획득 불가 상태로 표시
+
+
+### 2.4.3.2 보물 타입별 시각 연출 분기
+
+* 보물 타입(TreasureType)에 따라 연출 방식 분기
+
+* 특히 Artifact 타입 보물은 미획득 상태에서만 전용 파티클 활성화
+
+
+### 2.4.3.3 플레이어 충돌 시 인게임 흐름 제어
+
+* 보물 UI가 열려 있는 동안 플레이어 조작 완전 차단
+
+* 연출과 게임플레이 흐름 충돌 방지
+
+* 이미 획득한 보물의 경우 간단한 알림 패널만 노출, 짧은 시간 후 자동 종료
+
+### 2.4.3.4 보물 UI 출력 및 정보 구성
+
+* 보물 이름 / 설명 / 아이콘 UI 구성
+
+* Codex 데이터를 참조하여 텍스트 출력
+
+* 보물 타입에 따라 UI 레이아웃 및 수량 표시 분기
+
+* StageManager에 보물 인덱스 전달
+
+* 스테이지별 획득 보물 수 증가
+
+* 클리어 판정 및 결과 UI 계산에 반영
+
+
+### 2.4.4 인게임 → 아웃게임 전환 (스테이지 클리어)
+
+📌 스테이지 클리어 진입
+
+* EndBlock → StageManager.ClearStage()
+
+* 도착 블록(EndBlock)이 StageManager에 클리어 이벤트 전달
+
+🔄 클리어 처리 시퀀스
+
+1️⃣ 엔드 다이얼로그 처리
+
+2️⃣ 결과 UI 출력
+* ShowResultUI();
+
+* 결과 패널 활성화
+
+* 별(보물) 수 계산 및 UI 반영
+
+### 2.4.5 보물 획득 여부에 따른 추가 처리
+
+📌 보물(별) 시스템 개요
+
+* 스테이지당 최대 3개의 보물
+
+* StageManager.collectedTreasures[3] 로 관리
+
+* 이전 기록보다 더 많이 수집했을 때만 갱신
+
+### 📌 PlayerProgressManager
+
+### 🔗 Class
+
+[PlayerProgressManager.cs](Assets/_Proj/Scripts/Data/PlayerProgressManager.cs)
+
+역할
+
+* 스테이지별 보물 획득 상태 저장
+
+* 최고 기록 유지
+
+* 중복 보상 방지
+
+📌 보물 보상 처리 (ClaimRewards)
+
+* 처리 기준은 획득 여부 + 보상 ID 범위 기반이다.
+
+2.4.6 인게임 → 아웃게임 씬 복귀
+
+📌 종료 시퀀스
+
+* 결과 UI 확인 버튼 클릭
+
+* 엔드 컷씬 재생 (존재 시)
+
+* 페이드 인
+
+* 메인 씬 로드
 
 
 ## 3. 플로우 차트 및 클래스 다이어그램
