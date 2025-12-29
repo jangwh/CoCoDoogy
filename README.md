@@ -42,7 +42,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 카테고리 버튼 자동 생성
 
-* 블록 버튼 동적 생성 및 제거
+* 블록 버튼 생성 및 제거
 
 * 숫자 키 표시 UI(TextMeshPro) 연동
 
@@ -53,7 +53,7 @@ Unity를 활용하여 3D로 제작하였습니다
 → 선택한 카테고리의 블록 목록을 현재 페이지 기준으로 표시
 
 * CreateCategoryButtons()
-→ BlockListData를 기반으로 카테고리 버튼 동적 생성
+→ BlockListData를 기반으로 카테고리 버튼 생성
 
 * HandleCategoryHotkeys()
 → F1 ~ Fn : 카테고리 전환
