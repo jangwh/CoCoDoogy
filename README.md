@@ -126,9 +126,114 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 맵 저장/로드 시스템과 자연스럽게 연동 가능
 
-2.2 코코두기 데이터 관리
-* 구글 스프레드 시트의 주소를 받아 데이터를 S/O화
-* 데이터매니저의 허브화
+2.3 코코두기 데이터 관리 시스템
+
+* 구글 스프레드시트 기반 데이터 파이프라인 구축 및 DataManager 허브화
+
+📌 개요
+
+* CoCoDoogy는 구글 스프레드시트를 단일 데이터 원본(Source of Truth) 으로 사용하며,
+에디터 단계에서 CSV를 자동 다운로드한 뒤 ScriptableObject(S/O)로 변환하고,
+런타임에서는 DataManager를 중심으로 모든 데이터 접근을 통합하는 구조를 사용합니다.
+
+2.3.1 CSV → ScriptableObject 자동 변환 파이프라인
+
+
+📌 MetaJsonGenerator
+
+* 데이터 테이블 메타 정보를 기반으로 table_meta.json을 자동 생성하는 에디터 툴
+
+🔗 Class
+
+[MetaJsonGenerator.cs](Assets/_Proj/Scripts/Editor/Tools/MetaJsonGenerator.cs)
+
+역할
+
+* 마스터 구글 스프레드시트로부터 테이블 목록 CSV 다운로드
+
+* 테이블 이름 / 타입 / CSV URL 정보를 추출
+
+* CSV Import 단계에서 사용되는 메타 JSON(table_meta.json) 자동 생성
+
+주요 메서드
+
+* GenerateMetaJson()
+→ 마스터 시트 CSV 다운로드
+→ 테이블 메타 정보 파싱
+→ TableMetaList 구조로 JSON 파일 생성
+
+
+📌 CsvImportManager
+
+* 메타 JSON을 기반으로 CSV를 다운로드하고 ScriptableObject로 변환하는 에디터 툴
+
+🔗 Class
+
+[CsvImportManager.cs](Assets/_Proj/Scripts/Editor/Tools/CsvImportManager.cs)
+
+역할
+
+* table_meta.json 기반 전체 데이터 테이블 일괄 처리
+
+* 구글 스프레드시트 CSV 자동 다운로드
+
+* 테이블 타입에 따라 CSV 저장 또는 ScriptableObject 생성 수행
+
+주요 메서드
+
+* DownloadAndImport()
+→ 메타 JSON 로드
+→ 각 테이블 CSV 다운로드
+→ 타입에 따라 Import 분기
+
+* ImportAllTables(string name, string type, string csv)
+→ 테이블 이름 기준 Parser 클래스 호출
+→ CSV → ScriptableObject 변환
+
+* DownloadCSV(string url)
+→ CSV 원격 다운로드 처리
+
+
+2.3.2 DataManager 허브화 구조
+
+📌 DataManager
+
+* 프로젝트 전체 데이터 접근을 단일 진입점으로 통합한 데이터 허브
+
+🔗 Class
+
+[DataManager.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/DataManager.cs)
+
+역할
+
+* 모든 데이터 Provider를 중앙에서 초기화 및 관리
+
+* 씬 전환과 무관하게 유지되는 글로벌 데이터 접근 포인트 제공
+
+* 인게임 시스템에서 직접 S/O 접근을 차단하고 Provider를 통해서만 접근하도록 설계
+
+구조적 특징
+
+* Singleton + DontDestroyOnLoad
+
+* 데이터 테이블별 Provider 명확히 분리
+
+* ataRegistry를 통해 S/O 참조 집합 관리
+
+
+📌 ResourcesLoader
+
+* 리소스 로딩 책임을 분리하기 위한 Loader 클래스
+
+🔗 Class
+
+[ResourcesLoader.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/ResourcesLoader.cs)
+
+역할
+
+* Resources.Load 호출을 한 곳으로 캡슐화
+
+* Provider가 구체적인 로딩 방식에 의존하지 않도록 분리
 
 2.3 씬연결
 * 아웃게임-인게임-아웃게임 전환시의 처리
