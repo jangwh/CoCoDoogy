@@ -215,7 +215,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 데이터 테이블별 Provider 명확히 분리
 
-* ataRegistry를 통해 S/O 참조 집합 관리
+* DataRegistry를 통해 S/O 참조 집합 관리
 
 
 ### 📌 ResourcesLoader
