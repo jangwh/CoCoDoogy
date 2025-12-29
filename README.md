@@ -259,7 +259,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 1️⃣ 스테이지 데이터 확보
 
-* 일반 모드
+* 스테이지 로딩 시
 → FirebaseManager.Instance.currentMapData
 
 2️⃣ 블록 팩토리를 통한 스테이지 구성
