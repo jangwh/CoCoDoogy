@@ -247,7 +247,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * StageManager는 인게임 진입의 총괄 컨트롤러로서 다음 책임을 가진다.
 
-주요 책임
+#### 주요 기능 및 메서드
 
 * Firebase에서 선택된 스테이지 정보 수신
 
@@ -266,7 +266,6 @@ Unity를 활용하여 3D로 제작하였습니다
 * LoadStage(currentMapData);
 * InspectBlocks();
 * LinkSignals();
-
 
 * BlockFactory를 통해 맵 블록을 생성
 
@@ -382,6 +381,13 @@ Unity를 활용하여 3D로 제작하였습니다
 1️⃣ 엔드 다이얼로그 처리
 
 2️⃣ 결과 UI 출력
+
+* OnTreasureCollected(int index)
+
+* 보물 획득 상태 배열 업데이트
+
+* 별 개수 계산
+
 * ShowResultUI();
 
 * 결과 패널 활성화
@@ -412,21 +418,19 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 중복 보상 방지
 
-📌 보물 보상 처리 (ClaimRewards)
+주요 메서드
 
-* 처리 기준은 획득 여부 + 보상 ID 범위 기반이다.
+* GetStageProgress(string stageId)
 
-2.4.6 인게임 → 아웃게임 씬 복귀
+* 스테이지별 진행 데이터 조회 / 생성
 
-📌 종료 시퀀스
+* UpdateStageTreasure(string stageId, bool[] newlyCollected)
 
-* 결과 UI 확인 버튼 클릭
+* 기존 기록보다 더 많은 별을 획득했을 때만 갱신
 
-* 엔드 컷씬 재생 (존재 시)
+* SaveProgress()
 
-* 페이드 인
-
-* 메인 씬 로드
+* UserData(Local) 기반 영구 저장
 
 
 ## 3. 플로우 차트 및 클래스 다이어그램
