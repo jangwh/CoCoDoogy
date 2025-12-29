@@ -129,7 +129,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 📌 개요
 
-* CoCoDoogy는 구글 스프레드시트를 단일 데이터 원본(Source of Truth) 으로 사용하며,
+* CoCoDoogy는 구글 스프레드시트를 단일 데이터 원본으로 사용하며,
 에디터 단계에서 CSV를 자동 다운로드한 뒤 ScriptableObject(S/O)로 변환하고,
 런타임에서는 DataManager를 중심으로 모든 데이터 접근을 통합하는 구조를 사용합니다.
 
