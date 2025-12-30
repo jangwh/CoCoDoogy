@@ -23,31 +23,17 @@ Unity를 활용하여 3D로 제작하였습니다
 
 ### 2.1 맵 에디터 UI / 블록 선택 시스템
 
-### 📌 BlockCategoryUI
+### [BlockCategoryUI.cs](mapeditor/Assets/Scripts/UI/BlockCategoryUI.cs)
 
 * 맵 에디터에서 카테고리 기반 블록 선택 UI 및 단축키 입력을 관리하는 클래스
 
-### 🔗 Class
 
-[BlockCategoryUI.cs](mapeditor/Assets/Scripts/UI/BlockCategoryUI.cs)
-
-역할
+#### 💡 역할
 
 * 블록 / 동물 / 기믹 등 카테고리별 블록 목록 UI 관리
 
 * 키보드 단축키(F1~ / 1~9 / Tab)를 통한 빠른 블록 선택 지원
-
-
-주요 기능 정리
-
-* 카테고리 버튼 자동 생성
-
-* 블록 버튼 생성 및 제거
-
-* 숫자 키 표시 UI(TextMeshPro) 연동
-
-
-주요 메서드
+#### 📌 주요 메서드
 
 * ShowBlocks(BlockListData category)
 → 선택한 카테고리의 블록 목록을 현재 페이지 기준으로 표시
@@ -66,7 +52,7 @@ Unity를 활용하여 3D로 제작하였습니다
 * HandlePageChange()
 → Tab 키 입력 시 페이지 순환 처리
 
-기술적 포인트
+#### 기술적 포인트
 
 * UI 생성/삭제를 코드로 통제하여 에디터 확장성 확보
 
@@ -74,16 +60,12 @@ Unity를 활용하여 3D로 제작하였습니다
 
 ### 2.2 블록 생성 및 식별 시스템
 
-
-### 📌 BlockFactory
+ 
+### [BlockFactory.cs](mapeditor/Assets/Scripts/BlockFactory.cs)
 
 * 블록 데이터 기반 프리팹 생성 및 식별 컴포넌트 구성 담당 클래스
 
-### 🔗 Class
-
-[BlockFactory.cs](mapeditor/Assets/Scripts/BlockFactory.cs)
-
-역할
+#### 💡 역할
 
 * ScriptableObject(BlockData) 기반 블록 생성 책임 집중
 
@@ -93,15 +75,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 에디터 / 인게임 공통 생성 로직 제공
 
-주요 기능 정리
-
-* 블록 이름 또는 BlockData 기반 생성 지원
-
-* 블록 타입에 따른 Identity 클래스 분기 처리
-
-* 블록 프리팹 탐색 기능 제공
-
-주요 메서드
+#### 📌 주요 메서드
 
 * CreateBlock(string blockName, Vector3Int position, Quaternion rotation, BlockSaveData saveData = null)
 → 블록 이름 기반으로 BlockData 탐색 후 생성
@@ -115,7 +89,7 @@ Unity를 활용하여 3D로 제작하였습니다
 * FindBlockPrefab(string blockName)
 → 블록 이름 기반 프리팹 조회 (생성 없이 참조 목적)
 
-기술적 포인트
+#### 기술적 포인트
 
 * 팩토리 패턴 적용으로 생성 책임 단일화
 
@@ -127,7 +101,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 구글 스프레드시트 기반 데이터 파이프라인 구축 및 DataManager 허브화
 
-📌 개요
+#### 📌 개요
 
 * CoCoDoogy는 구글 스프레드시트를 단일 데이터 원본으로 사용하며,
 에디터 단계에서 CSV를 자동 다운로드한 뒤 ScriptableObject(S/O)로 변환하고,
@@ -135,16 +109,11 @@ Unity를 활용하여 3D로 제작하였습니다
 
 ### 2.3.1 CSV → ScriptableObject 자동 변환 파이프라인
 
-
-### 📌 MetaJsonGenerator
+### [MetaJsonGenerator.cs](Assets/_Proj/Scripts/Editor/Tools/MetaJsonGenerator.cs)
 
 * 데이터 테이블 메타 정보를 기반으로 table_meta.json을 자동 생성하는 에디터 툴
 
-### 🔗 Class
-
-[MetaJsonGenerator.cs](Assets/_Proj/Scripts/Editor/Tools/MetaJsonGenerator.cs)
-
-역할
+#### 💡 역할
 
 * 마스터 구글 스프레드시트로부터 테이블 목록 CSV 다운로드
 
@@ -152,7 +121,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * CSV Import 단계에서 사용되는 메타 JSON(table_meta.json) 자동 생성
 
-주요 메서드
+#### 📌 주요 메서드
 
 * GenerateMetaJson()
 → 마스터 시트 CSV 다운로드
@@ -160,15 +129,12 @@ Unity를 활용하여 3D로 제작하였습니다
 → TableMetaList 구조로 JSON 파일 생성
 
 
-### 📌 CsvImportManager
+
+### [CsvImportManager.cs](Assets/_Proj/Scripts/Editor/Tools/CsvImportManager.cs)
 
 * 메타 JSON을 기반으로 CSV를 다운로드하고 ScriptableObject로 변환하는 에디터 툴
-
-### 🔗 Class
-
-[CsvImportManager.cs](Assets/_Proj/Scripts/Editor/Tools/CsvImportManager.cs)
-
-역할
+  
+#### 💡 역할
 
 * table_meta.json 기반 전체 데이터 테이블 일괄 처리
 
@@ -176,32 +142,23 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 테이블 타입에 따라 CSV 저장 또는 ScriptableObject 생성 수행
 
-주요 메서드
+#### 📌 주요 메서드
 
-* DownloadAndImport()
-→ 메타 JSON 로드
-→ 각 테이블 CSV 다운로드
-→ 타입에 따라 Import 분기
+* DownloadAndImport() : 메타 JSON 로드, 각 테이블 CSV 다운로드, 타입에 따라 Import 분기
 
-* ImportAllTables(string name, string type, string csv)
-→ 테이블 이름 기준 Parser 클래스 호출
-→ CSV → ScriptableObject 변환
+* ImportAllTables(string name, string type, string csv) : 테이블 이름 기준 Parser 클래스 호출, CSV → S/O 변환
 
-* DownloadCSV(string url)
-→ CSV 원격 다운로드 처리
+* DownloadCSV(string url) : CSV 원격 다운로드 처리
 
 
 ### 2.3.2 DataManager 허브화 구조
 
-### 📌 DataManager
+### [DataManager.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/DataManager.cs)
 
 * 프로젝트 전체 데이터 접근을 단일 진입점으로 통합한 데이터 허브
 
-### 🔗 Class
 
-[DataManager.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/DataManager.cs)
-
-역할
+#### 💡 역할
 
 * 모든 데이터 Provider를 중앙에서 초기화 및 관리
 
@@ -209,7 +166,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 인게임 시스템에서 직접 S/O 접근을 차단하고 Provider를 통해서만 접근하도록 설계
 
-구조적 특징
+#### 구조적 특징
 
 * Singleton + DontDestroyOnLoad
 
@@ -218,15 +175,11 @@ Unity를 활용하여 3D로 제작하였습니다
 * DataRegistry를 통해 S/O 참조 집합 관리
 
 
-### 📌 ResourcesLoader
+### [ResourcesLoader.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/ResourcesLoader.cs)
 
 * 리소스 로딩 책임을 분리하기 위한 Loader 클래스
 
-### 🔗 Class
-
-[ResourcesLoader.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/ResourcesLoader.cs)
-
-역할
+#### 💡 역할
 
 * Resources.Load 호출을 한 곳으로 캡슐화
 
@@ -239,21 +192,11 @@ Unity를 활용하여 3D로 제작하였습니다
 
 ### 2.4.1 아웃게임 → 인게임 전환 처리
 
-### 📌 StageManager 
-
-### 🔗 Class
-
-[StageManager.cs](Assets/_Proj/Scripts/Stage/StageManager.cs)
+### [StageManager.cs](Assets/_Proj/Scripts/Stage/StageManager.cs)
 
 * StageManager는 인게임 진입의 총괄 컨트롤러로서 다음 책임을 가진다.
 
-#### 주요 기능 및 메서드
-
-* Firebase에서 선택된 스테이지 정보 수신
-
-* 맵 데이터(MapData) 기반 스테이지 구성
-
-* 플레이어, 카메라, UI, 컷씬, 다이얼로그 초기 흐름 제어
+#### 📌 주요 메서드 및 기능
 
 🔄 인게임 초기화 시퀀스
 
@@ -263,15 +206,9 @@ Unity를 활용하여 3D로 제작하였습니다
 → FirebaseManager.Instance.currentMapData
 
 2️⃣ 블록 팩토리를 통한 스테이지 구성
-* LoadStage(currentMapData);
-* InspectBlocks();
-* LinkSignals();
-
-* BlockFactory를 통해 맵 블록을 생성
-
-* 그리드 기준으로 블록 등록 (blockDictionary)
-
-* 시그널 블록 간 연결 처리
+* LoadStage(currentMapData) : BlockFactory를 통해 맵 블록을 생성
+* InspectBlocks() : 그리드 기준으로 블록 등록 (blockDictionary)
+* LinkSignals() : 시그널 블록 간 연결 처리
 
 3️⃣ 연출 처리 (페이드 → 컷씬 → BGM → 카메라)
 
@@ -285,21 +222,14 @@ Unity를 활용하여 3D로 제작하였습니다
 
 4️⃣ 플레이어 생성 및 다이얼로그 시작
 
-* SpawnPlayer();
- 
-* 시작 지점에 플레이어 생성
+* SpawnPlayer() : 시작 지점에 플레이어 생성, 다이얼로그 존재 시 입력 잠금 및 진행 제어
 
-* 다이얼로그 존재 시 입력 잠금 및 진행 제어
 
 ### 2.4.2 인게임 중 상호작용 제어
 
-### 📌 DialogueManager 
+### [DialogueManager.cs](Assets/_Proj/Scripts/Stage/DialogueManager.cs)
 
-### 🔗 Class
-
-[DialogueManager.cs](Assets/_Proj/Scripts/Stage/DialogueManager.cs)
-
-주요 역할
+#### 💡 역할
 
 * 다이얼로그 출력 및 진행 관리
 
@@ -312,11 +242,7 @@ Unity를 활용하여 3D로 제작하였습니다
 * 인게임 스테이지 내에서 보물 오브젝트와 상호작용할 때의
 플레이 흐름 제어, UI 전환, 진행도 반영 과정을 담당하는 시스템
 
-### 📌 Treasure 
-
-### 🔗 Class
-
-[Treasure.cs](Assets/_Proj/Scripts/Stage/Block/Treasure.cs)
+### [Treasure.cs](Assets/_Proj/Scripts/Stage/Block/Treasure.cs)
 
 * Treasure는 스테이지에 배치되는 상호작용 오브젝트로,
 플레이어 충돌을 기점으로 다음을 처리한다.
@@ -328,44 +254,6 @@ Unity를 활용하여 3D로 제작하였습니다
 * 플레이어 입력 및 이동 제어
 
 * 스테이지 내 보물 획득 상태(StageManager) 반영
-
-### 2.4.3.1 스테이지 진입 시 보물 상태 초기화
-
-처리 내용
-
-* 현재 스테이지 진행도를 기준으로 이미 획득한 보물인지 여부 확인
-
-* 이미 획득한 경우 : 파티클 비활성화, 셰이더 색상 변경(회색 처리), 재획득 불가 상태로 표시
-
-
-### 2.4.3.2 보물 타입별 시각 연출 분기
-
-* 보물 타입(TreasureType)에 따라 연출 방식 분기
-
-* 특히 Artifact 타입 보물은 미획득 상태에서만 전용 파티클 활성화
-
-
-### 2.4.3.3 플레이어 충돌 시 인게임 흐름 제어
-
-* 보물 UI가 열려 있는 동안 플레이어 조작 완전 차단
-
-* 연출과 게임플레이 흐름 충돌 방지
-
-* 이미 획득한 보물의 경우 간단한 알림 패널만 노출, 짧은 시간 후 자동 종료
-
-### 2.4.3.4 보물 UI 출력 및 정보 구성
-
-* 보물 이름 / 설명 / 아이콘 UI 구성
-
-* Codex 데이터를 참조하여 텍스트 출력
-
-* 보물 타입에 따라 UI 레이아웃 및 수량 표시 분기
-
-* StageManager에 보물 인덱스 전달
-
-* 스테이지별 획득 보물 수 증가
-
-* 클리어 판정 및 결과 UI 계산에 반영
 
 
 ### 2.4.4 인게임 → 아웃게임 전환 (스테이지 클리어)
@@ -382,17 +270,9 @@ Unity를 활용하여 3D로 제작하였습니다
 
 2️⃣ 결과 UI 출력
 
-* OnTreasureCollected(int index)
+* OnTreasureCollected(int index) : 보물 획득 상태 배열 업데이트, 별 개수 계산
 
-* 보물 획득 상태 배열 업데이트
-
-* 별 개수 계산
-
-* ShowResultUI();
-
-* 결과 패널 활성화
-
-* 별(보물) 수 계산 및 UI 반영
+* ShowResultUI() : 결과 패널 활성화, 별(보물) 수 계산 및 UI 반영
 
 ### 2.4.5 보물 획득 여부에 따른 추가 처리
 
@@ -404,13 +284,9 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 이전 기록보다 더 많이 수집했을 때만 갱신
 
-### 📌 PlayerProgressManager
+### [PlayerProgressManager.cs](Assets/_Proj/Scripts/Data/PlayerProgressManager.cs)
 
-### 🔗 Class
-
-[PlayerProgressManager.cs](Assets/_Proj/Scripts/Data/PlayerProgressManager.cs)
-
-역할
+#### 💡 역할
 
 * 스테이지별 보물 획득 상태 저장
 
@@ -418,20 +294,13 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 중복 보상 방지
 
-주요 메서드
+#### 📌 주요 메서드
 
-* GetStageProgress(string stageId)
+* GetStageProgress(string stageId) : 스테이지별 진행 데이터 조회 / 생성
 
-* 스테이지별 진행 데이터 조회 / 생성
+* UpdateStageTreasure(string stageId, bool[] newlyCollected) : 기존 기록보다 더 많은 별을 획득했을 때만 갱신
 
-* UpdateStageTreasure(string stageId, bool[] newlyCollected)
-
-* 기존 기록보다 더 많은 별을 획득했을 때만 갱신
-
-* SaveProgress()
-
-* UserData(Local) 기반 영구 저장
-
+* SaveProgress() : UserData(Local) 기반 저장
 
 ## 3. 플로우 차트 및 클래스 다이어그램
 
