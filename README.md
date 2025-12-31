@@ -33,6 +33,8 @@ Unity를 활용하여 3D로 제작하였습니다
 * 블록 / 동물 / 기믹 등 카테고리별 블록 목록 UI 관리
 
 * 키보드 단축키(F1~ / 1~9 / Tab)를 통한 빠른 블록 선택 지원
+
+  
 #### 📌 주요 메서드
 
 * ShowBlocks(BlockListData category)
@@ -272,9 +274,11 @@ Unity를 활용하여 3D로 제작하였습니다
 
 2️⃣ 결과 UI 출력
 
-* OnTreasureCollected(int index) : 보물 획득 상태 배열 업데이트, 별 개수 계산
+#### 📌 주요 메서드
 
-* ShowResultUI() : 결과 패널 활성화, 별(보물) 수 계산 및 UI 반영
+* StageManager.OnTreasureCollected(int index) : 보물 획득 상태 배열 업데이트, 별 개수 계산
+
+* StageManager.ShowResultUI() : 결과 패널 활성화, 별(보물) 수 계산 및 UI 반영
 
 ### 2.4.5 보물 획득 여부에 따른 추가 처리
 
