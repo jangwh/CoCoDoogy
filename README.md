@@ -17,11 +17,33 @@ Unity를 활용하여 3D로 제작하였습니다
 
 개발기간 : 2025.10.16 ~ 2025.12.10
 
-## 2. 주요 기능
+## 2. 플로우 차트 및 클래스 다이어그램
+
+2.1 플로우차트
+<img width="1233" height="596" alt="Image" src="https://github.com/user-attachments/assets/a37e5675-90dd-47fa-8e8c-02c54524466e" />
+
+--------------------------------------------------------------------------------------------------------------------
+2.2 클래스 다이어그램
+
+<img width="677" height="470" alt="Image" src="https://github.com/user-attachments/assets/b037eb25-7b73-4782-8d3d-305c4a46a9a0" />
+
+--------------------------------------------------------------------------------------------------------------------
+<img width="682" height="465" alt="Image" src="https://github.com/user-attachments/assets/0880ddff-8f27-482f-886a-ddd50b38df39" />
+
+--------------------------------------------------------------------------------------------------------------------
+<img width="692" height="443" alt="Image" src="https://github.com/user-attachments/assets/3094c32d-6d40-4eb0-9a9b-ac29f25ff2c7" />
+
+--------------------------------------------------------------------------------------------------------------------
+<img width="970" height="546" alt="Image" src="https://github.com/user-attachments/assets/a67efe66-9b33-4281-9e5f-e1ffeb2a54af" />
+
+--------------------------------------------------------------------------------------------------------------------
+<img width="834" height="485" alt="Image" src="https://github.com/user-attachments/assets/80a88277-7011-4bd2-bd08-99ba3bd0fe3a" />
+
+## 3. 주요 기능
 
 장우형 개발파트
 
-### 2.1 맵 에디터 UI / 블록 선택 시스템
+### 3.1 맵 에디터 UI / 블록 선택 시스템
 
 ### [BlockCategoryUI.cs](mapeditor/Assets/Scripts/UI/BlockCategoryUI.cs)
 
@@ -60,7 +82,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 키보드 단축키 중심 UX로 맵 제작 속도 향상
 
-### 2.2 블록 생성 및 식별 시스템
+### 3.2 블록 생성 및 식별 시스템
 
  
 ### [BlockFactory.cs](mapeditor/Assets/Scripts/BlockFactory.cs)
@@ -99,7 +121,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 맵 저장/로드 시스템과 자연스럽게 연동 가능
 
-### 2.3 코코두기 데이터 관리 시스템
+### 3.3 코코두기 데이터 관리 시스템
 
 * 구글 스프레드시트 기반 데이터 파이프라인 구축 및 DataManager 허브화
 
@@ -109,7 +131,7 @@ Unity를 활용하여 3D로 제작하였습니다
 에디터 단계에서 CSV를 자동 다운로드한 뒤 ScriptableObject(S/O)로 변환하고,
 런타임에서는 DataManager를 중심으로 모든 데이터 접근을 통합하는 구조를 사용합니다.
 
-### 2.3.1 CSV → ScriptableObject 자동 변환 파이프라인
+### 3.3.1 CSV → ScriptableObject 자동 변환 파이프라인
 
 ### [MetaJsonGenerator.cs](Assets/_Proj/Scripts/Editor/Tools/MetaJsonGenerator.cs)
 
@@ -153,7 +175,7 @@ Unity를 활용하여 3D로 제작하였습니다
 * DownloadCSV(string url) : CSV 원격 다운로드 처리
 
 
-### 2.3.2 DataManager 허브화 구조
+### 3.3.2 DataManager 허브화 구조
 
 ### [DataManager.cs](Assets/_Proj/Scripts/Data/DataTable/DataCore/DataManager.cs)
 
@@ -187,12 +209,12 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * Provider가 구체적인 로딩 방식에 의존하지 않도록 분리
 
-### 2.4 씬 연결 (OutGame ↔ InGame ↔ OutGame)
+### 3.4 씬 연결 (OutGame ↔ InGame ↔ OutGame)
 
 * 스테이지 진입부터 클리어 후 메인 복귀까지의 씬 전환 흐름과
 보물(별) 획득 여부에 따른 추가 처리 로직을 정리한다.
 
-### 2.4.1 아웃게임 → 인게임 전환 처리
+### 3.4.1 아웃게임 → 인게임 전환 처리
 
 ### [StageManager.cs](Assets/_Proj/Scripts/Stage/StageManager.cs)
 
@@ -227,7 +249,7 @@ Unity를 활용하여 3D로 제작하였습니다
 * SpawnPlayer() : 시작 지점에 플레이어 생성, 다이얼로그 존재 시 입력 잠금 및 진행 제어
 
 
-### 2.4.2 인게임 중 상호작용 제어
+### 3.4.2 인게임 중 상호작용 제어
 
 ### [DialogueManager.cs](Assets/_Proj/Scripts/Stage/DialogueManager.cs)
 
@@ -239,7 +261,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * 게임플레이 입력 잠금 / 해제
 
-### 2.4.3 보물(Treasure) 획득 플로우 및 인게임 처리
+### 3.4.3 보물(Treasure) 획득 플로우 및 인게임 처리
 
 * 인게임 스테이지 내에서 보물 오브젝트와 상호작용할 때의
 플레이 흐름 제어, UI 전환, 진행도 반영 과정을 담당하는 시스템
@@ -260,7 +282,7 @@ Unity를 활용하여 3D로 제작하였습니다
 * 스테이지 내 보물 획득 상태(StageManager) 반영
 
 
-### 2.4.4 인게임 → 아웃게임 전환 (스테이지 클리어)
+### 3.4.4 인게임 → 아웃게임 전환 (스테이지 클리어)
 
 #### 스테이지 클리어 진입
 
@@ -280,7 +302,7 @@ Unity를 활용하여 3D로 제작하였습니다
 
 * StageManager.ShowResultUI() : 결과 패널 활성화, 별(보물) 수 계산 및 UI 반영
 
-### 2.4.5 보물 획득 여부에 따른 추가 처리
+### 3.4.5 보물 획득 여부에 따른 추가 처리
 
 #### 보물(별) 시스템 개요
 
@@ -307,28 +329,6 @@ Unity를 활용하여 3D로 제작하였습니다
 * UpdateStageTreasure(string stageId, bool[] newlyCollected) : 기존 기록보다 더 많은 별을 획득했을 때만 갱신
 
 * SaveProgress() : UserData(Local) 기반 저장
-
-## 3. 플로우 차트 및 클래스 다이어그램
-
-3.1 플로우차트
-<img width="1233" height="596" alt="Image" src="https://github.com/user-attachments/assets/a37e5675-90dd-47fa-8e8c-02c54524466e" />
-
---------------------------------------------------------------------------------------------------------------------
-3.2 클래스 다이어그램
-
-<img width="677" height="470" alt="Image" src="https://github.com/user-attachments/assets/b037eb25-7b73-4782-8d3d-305c4a46a9a0" />
-
---------------------------------------------------------------------------------------------------------------------
-<img width="682" height="465" alt="Image" src="https://github.com/user-attachments/assets/0880ddff-8f27-482f-886a-ddd50b38df39" />
-
---------------------------------------------------------------------------------------------------------------------
-<img width="692" height="443" alt="Image" src="https://github.com/user-attachments/assets/3094c32d-6d40-4eb0-9a9b-ac29f25ff2c7" />
-
---------------------------------------------------------------------------------------------------------------------
-<img width="970" height="546" alt="Image" src="https://github.com/user-attachments/assets/a67efe66-9b33-4281-9e5f-e1ffeb2a54af" />
-
---------------------------------------------------------------------------------------------------------------------
-<img width="834" height="485" alt="Image" src="https://github.com/user-attachments/assets/80a88277-7011-4bd2-bd08-99ba3bd0fe3a" />
 
 --------------------------------------------------------------------------------------------------------------------
    
